@@ -1,0 +1,48 @@
+{% extends "baseplate/layout.html" %}
+{% block header_title %}CSS Calculator{% endblock %}
+{% block header_js_loads %}
+		<script src="{{ url_for('static', filename='js/calc.js') }}"></script>
+{% endblock header_js_loads %}
+{% block header_js_ready %}
+		mindpoopcalc();
+{% endblock header_js_ready %}
+{% block body %}
+<div id="calculator">
+	<!-- Screen and clear key -->
+	<div class="top">
+		<div class="screen"></div>
+		<span class="helper">BigNum</span>
+		<span class="helper">DailyTick</span>
+		<span class="helper">Gold</span>
+		<span class="helper">Oil</span>
+	</div>
+	
+	<div class="keys">
+		<!-- operators and other keys -->
+		<span>7</span>
+		<span>8</span>
+		<span>9</span>
+		<span class="operator">+</span>
+		<span class="helper">Ammo</span>
+		<span class="helper">Trade%</span>
+		<span>4</span>
+		<span>5</span>
+		<span>6</span>
+		<span class="operator">-</span>
+		<span class="helper">Septillion</span>
+		<span class="helper">Sextillion</span>
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+		<span class="operator">/</span>
+		<span class="helper">Quintillion</span>
+		<span class="helper">Quadrillion</span>
+		<span class="clear">C</span>
+		<span>0</span>
+		<span class="eval">=</span>
+		<span class="operator">*</span>
+		<span class="helper">Trillion</span>
+		<span class="helper">Billion</span>
+	</div>
+</div>
+{% endblock %}

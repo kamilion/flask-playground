@@ -1,0 +1,14 @@
+{% extends "baseplate/layout.html" %}
+{% block header_title %}User Chat{% endblock %}
+{% block body %}
+      <ul class=results>
+        <hr>
+        {% for result in results %}
+        <li> <em> <a href="{{ url_for('ChatView:get', uuid=result.id) }}">{{ result.meta['updated_at']|safe }}</a></em>
+        [ {{ result.meta['name']|safe }} ]: {{ result.message|safe }}<br>
+        <hr>
+      {% else %}
+        <li><em>No chat messages here so far...</em>
+      {% endfor %}
+      </ul>
+{% endblock %}

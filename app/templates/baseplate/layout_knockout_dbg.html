@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{%- block header %}
+	<title>{% block header_title %}LAYOUT DEFAULT{% endblock header_title %}</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta charset="utf-8">
+	<meta name = "format-detection" content = "telephone=no" />
+	{% block header_meta %}{% endblock header_meta %}
+	<link rel="icon" href="{{ url_for('static', filename='images/iconlogos/favicon.ico') }}">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='images/iconlogos/favicon.ico') }}" />
+	{% block header_css_pre %}{% endblock header_css_pre %}
+	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/calc.css') }}">
+	{% block header_css_post %}{% endblock header_css_post %}
+	<script src="{{ url_for('static', filename='js/lib/prefixfree-1.0.7.debug.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/lib/zepto-1.1.6.debug.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/lib/knockout-3.3.0.debug.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/lib/knockout.mapping-2.4.1.debug.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/lib/moment-2.10.3.debug.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/lib/moment-timezone-with-data-2010-2020-0.4.0.debug.js') }}"></script>
+	{% block header_js_loads %}{% endblock header_js_loads %}
+	<script>
+		Zepto(function($){
+		{% block header_js_ready %}{% endblock header_js_ready %}
+		});
+		{# window.onload = function(){ }; #}
+	</script>
+{% endblock header -%}
+</head>
+<body class="" id="top">
+<!-- begin content container -->
+<!-- begin body block -->
+{% block body %}
+<p>Sorry, no acceptable content could be rendered for this endpoint.</p>
+{% endblock body %}
+<!-- end body block -->
+<!-- end content container -->
+<!-- begin footer container -->
+{%- block footer %}{% endblock footer -%}
+{%- include 'baseplate/blocks/footer.html' -%}
+<!-- end footer container -->
+{% block footer_js_loads %}{% endblock footer_js_loads %}
+</body>
+</html>

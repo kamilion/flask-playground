@@ -1,0 +1,84 @@
+{% extends "baseplate/layout.html" %}
+{% block header_title %}CALCULATOR{% endblock %}
+{% block body %}
+<div class="content">
+  <div class="container_12 ">
+	<div class="grid_8">
+      <h1>MINDPOOP</h1>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+      <!-- This is the Add function -->
+      <script type=text/javascript>
+          $(function() {
+              $('a#calc_add').bind('click', function() {
+                $.getJSON('/calc/add_num', {
+                  a: $('input[name="a"]').val(),
+                  b: $('input[name="b"]').val()
+                  }, function(data) {
+                  $("#result").text(data.result);
+                  });
+                return false;
+                });
+              });
+      </script>
+
+      <!-- This is the Subtract function -->
+      <script type=text/javascript>
+          $(function() {
+              $('a#calc_subt').bind('click', function() {
+                $.getJSON('/calc/subtract_num', {
+                  a: $('input[name="a"]').val(),
+                  b: $('input[name="b"]').val()
+                  }, function(data) {
+                  $("#result").text(data.result);
+                  });
+                return false;
+                });
+              });
+      </script>
+
+      <!-- This is the Multiply function -->
+      <script type=text/javascript>
+          $(function() {
+              $('a#calc_mult').bind('click', function() {
+                $.getJSON('/calc/multiply_num', {
+                  a: $('input[name="a"]').val(),
+                  b: $('input[name="b"]').val()
+                  }, function(data) {
+                  $("#result").text(data.result);
+                  });
+                return false;
+                });
+              });
+      </script>
+
+      <!-- This is the Divide function -->
+      <script type=text/javascript>
+          $(function() {
+              $('a#calc_div').bind('click', function() {
+                $.getJSON('/calc/divide_num', {
+                  a: $('input[name="a"]').val(),
+                  b: $('input[name="b"]').val()
+                  }, function(data) {
+                  $("#result").text(data.result);
+                  });
+                return false;
+                });
+              });
+      </script>
+
+
+
+      <h1>jQuery Example</h1>
+      <p>
+      <input type=text size=5 name=a> +
+      <input type=text size=5 name=b> =
+      <span id=result>?</span>
+      <p>
+      <a href=# id=calc_add>calculate add server side</a><br>
+      <a href=# id=calc_subt>calculate subt server side</a><br>
+      <a href=# id=calc_mult>calculate mult server side</a><br>
+      <a href=# id=calc_div>calculate div server side</a><br>
+	</div>
+  </div>   
+</div>
+{% endblock %}

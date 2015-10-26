@@ -1,0 +1,26 @@
+{% extends "baseplate/layout_knockout.html" %}
+{% block header_title %}Task Page{% endblock header_title %}
+{% block footer_js_loads %}
+	<script src="{{ url_for('static', filename='js/kotask.js') }}"></script>
+{% endblock footer_js_loads %}
+
+{% block body %}
+<!--==============================Content=================================-->
+<div class="content">
+    <form data-bind="submit: addTask">
+      <div>
+	Title: <input data-bind="value: newTaskTitle" placeholder="What's the title of the task?"/>
+      </div>
+      <div>
+	Description: <textarea data-bind="value: newTaskDesc" placeholder="What's the task?"></textarea>
+      </div>
+      <button type="submit">Add Task</button>
+    </form>
+    <ul data-bind="foreach: tasks, visible: tasks().length > 0">
+      <li>
+	<p data-bind="text: title"></p>
+	<p data-bind="text: description"></p>
+      </li>
+    </ul>
+</div>
+{% endblock body %}

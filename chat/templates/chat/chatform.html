@@ -1,0 +1,31 @@
+{% extends "baseplate/layout.html" %}
+{% block header_title %}Chat{% endblock %}
+{% block header_css_pre %}
+<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/form.css') }}">
+{% endblock header_css_pre %}
+{% block body %}
+<!--==============================Content=================================-->
+	<form id="form" action="{{ url_for('ChatView:post_message') }}" method=post>
+			{% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+			{{ form.hidden_tag() }}
+			<div class="success_wrapper">
+			<div class="success-message">Chat form submitted</div>
+			</div>
+			<label class="name">
+			{{ form.name(placeholder='Name') }}
+			<span class="empty-message">*This field is required.</span>
+			<span class="error-message">*This is not a valid name.</span>
+			</label>
+			<label class="message">
+			{{ form.message(placeholder='Your Message') }}
+			<span class="empty-message">*This field is required.</span>
+			<span class="error-message">*The message is too short.</span>
+			</label>
+			<div>
+			<div class="clear"></div>
+			<div class="btns">
+			<a href="#" onclick="$(this).closest('form').submit()" data-type="submit" class="btn">Chat!</a><br>
+			</div>
+			</div>
+	</form>   
+{% endblock body %}

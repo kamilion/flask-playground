@@ -1,0 +1,11 @@
+{% extends "baseplate/layout.html" %}
+{% block header_title %}User Chat Message{% endblock %}
+{% block body %}
+      <h3><a href="{{ url_for('ChatView:index') }}">User Chat</a></h3>
+      <ul class=results>
+        <li> <em> <h2> <a href="{{ url_for('ChatView:get', uuid=results.id) }}">{{ results.meta['updated_at']|safe }}</a> </h2> </em> <br>
+        <h3>Source:</h3> <h2>{{ results.meta['source']|safe }}</h2><br>
+        <h3>Name:</h3> <h2>{{ results.meta['name']|safe }}</h2><br>
+        <h3>Message:</h3><br><h2>{{ results.message|safe }}</h2><br>
+      </ul>
+{% endblock %}

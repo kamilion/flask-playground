@@ -1,0 +1,30 @@
+{% extends "baseplate/layout_knockout_dbg.html" %}
+{% block header_title %}IRC Page{% endblock header_title %}
+{% block footer_js_loads %}
+	<script src="{{ url_for('static', filename='js/koirc.js') }}"></script>
+{% endblock footer_js_loads %}
+
+{% block body %}
+<!--==============================Content=================================-->
+<div class="content">
+    <form data-bind="submit: addMessage">
+      <div>
+	Name: <input data-bind="value: newName" placeholder="Username"/>
+      </div>
+      <div>
+	Message: <textarea data-bind="value: newMessage" placeholder="Type your message here..."></textarea>
+      </div>
+      <button type="submit">Send Message</button>
+    </form>
+    <span style="font-size:8px" data-bind="text: clock"></span>
+    <div style="font-size:8px" id="timer">Refresh in: <span style="font-size:8px" data-bind="text: timer"></span> </div>
+    <ul data-bind="foreach: messages, visible: messages().length > 0">
+      <li style="font-size:10px">
+	[<span style="font-size:10px" data-bind="text: meta().updated_at"></span>]&nbsp;
+	&lt;<span style="font-size:10px" data-bind="text: meta().name"></span>&gt;&nbsp;
+	<span style="font-size:10px" data-bind="text: message"></span>
+      </li>
+    </ul>
+<hr /><div style="font-size:10px" data-bind="text: ko.toJSON(kocvm)"></div>
+<hr /><div style="font-size:10px" data-bind="text: ko.toJSON(viewModel)"></div>
+{% endblock body %}

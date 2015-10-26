@@ -1,0 +1,14 @@
+{% extends "baseplate/layout.html" %}
+{% block header_title %}CALCULATOR{% endblock %}
+{% block body %}
+	<p>
+	Mindpoop Calculator for Wargame 1942 version 0.10<br>
+	Dedicated to our wives, Jasmine & Computers<br>
+	Also <a href="http://www.lubuntu.net/">Ubuntu Linux</a>, <a href="http://www.nginx.org/">nginx</a>, <a href="http://projects.unbit.it/uwsgi/">uwsgi</a>, <a href="http://www.python.org/">python</a>, <a href="http://flask.pocoo.org">flask</a>, <a href="https://pythonhosted.org/Flask-Classy/">flask-classy</a> and <a href="http://docs.sympy.org/dev/modules/parsing.html">sympy</a>.<br>
+	</p>
+	
+	<a href="{{ url_for('CalcView:csscalc') }}" class="f_logo">RETURN TO THE CALCULATOR</a>
+{% endblock %}
+
+
+

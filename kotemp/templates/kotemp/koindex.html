@@ -1,0 +1,16 @@
+{% extends "baseplate/layout_knockout_dbg.html" %}
+{% block header_title %}Temp Page{% endblock header_title %}
+{% block footer_js_loads %}
+	<script src="{{ url_for('static', filename='js/kotemp.js') }}"></script>
+{% endblock footer_js_loads %}
+
+{% block body %}
+<!--==============================Content=================================-->
+<div class="content">
+    <ul data-bind="foreach: messages, visible: messages().length > 0">
+      <li>
+	 <span {# data-bind="text: messages" #}>HERE</span>
+      </li>
+    </ul> 
+<hr /><div style="font-size:10px" data-bind="text: ko.toJSON(viewModel)"></div>
+{% endblock body %}
